@@ -65,6 +65,7 @@ import filter_system as fs
 cap = cv2.VideoCapture(0) #Webcam Capture
 toss, snap = cap.read()
 temp = cv2.imread('test_template_2.jpg',0)
+#print("snap: ",(np.random.rand(self.num_particles,2) * np.shape(self.frame)[0]).astype(int))
 pf = fs.ParticleFilter(snap,temp)
 
 while(True):
@@ -90,7 +91,7 @@ while(True):
 	
 	template = cv2.imread('test_template_2.jpg',0)
 	pf.process(frame)
-	pf.render(frame)
+	#pf.render(frame)
 	w, h = template.shape[::-1]
 
 	res = cv2.matchTemplate(gray,template,cv2.TM_SQDIFF)
